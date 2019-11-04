@@ -1,0 +1,54 @@
+Create a project:
+    dotnet new webapi -o [project_name]
+    cd [project_name]
+
+Create manifest for local tools:
+    dotnet new tool-manifest
+
+Install dotnet-ef tool in local project:
+    dotnet tool install dotnet-ef
+    dotnet tool install dotnet-aspnet-codegenerator
+
+Package for others:
+    dotnet add package Newtonsoft.Json
+
+Package for models:
+    dotnet add package Microsoft.EntityFrameworkCore.Design
+    dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+In memory sql for dbcontext:
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    dotnet add package Microsoft.EntityFrameworkCore.InMemory
+
+Open Visual Studio Code for current project
+    code -r ../[project_name]
+
+Sample code to generate a controller from existed models
+    dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+    dotnet aspnet-codegenerator controller -name [controller_name] -async -api -m [model_name] -dc [model_context_name] -outDir Controllers
+
+Required parts for using PostgreSQL:
+    dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+    dotnet add package NpgSql.EntityFrameworkCore.PostgreSQL.Design
+    
+    Sample code for config service in Startup.cs file
+        services.AddDbContext<[Model_context_name]>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+    Sample code for app config file:
+        "ConnectionStrings": {
+            "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-MyPostgresApp-1a3c6f7e-a81e-4b86-8575-8ccebff9e7b6;Trusted_Connection=True;MultipleActiveResultSets=true"
+        },
+
+    Detail: https://medium.com/@agavatar/webapi-with-net-core-and-postgres-in-visual-studio-code-8b3587d12823
+
+Required parts for using mongoDB:
+    dotnet add [project_name].csproj package MongoDB.Driver -v {VERSION}
+
+    Detail: https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-3.0&tabs=visual-studio-code
+
+Initial migrations:
+    dotnet ef migrations add InitialCreate
+
+Update table in database:
+    dotnet ef database update
