@@ -21,6 +21,6 @@ namespace ASP.NETWebAPI.Models
 
         public String Phone { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

@@ -18,11 +18,11 @@ namespace ASP.NETWebAPI.Models
 
         public long ShipperID { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual Employee Employee { get; set; }
+        public Customer Customer { get; set; }
+        public Employee Employee { get; set; }
 
-        public virtual Shipper Shipper { get; set; }
+        public Shipper Shipper { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

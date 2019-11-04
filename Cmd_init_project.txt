@@ -50,5 +50,8 @@ Required parts for using mongoDB:
 Initial migrations:
     dotnet ef migrations add InitialCreate
 
+Remove migrations:
+    dotnet ef migrations remove
+
 Update table in database:
     dotnet ef database update

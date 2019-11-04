@@ -9,6 +9,6 @@ namespace ASP.NETWebAPI.Models
         public String Name { get; set; }
         public String Description { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

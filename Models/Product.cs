@@ -17,10 +17,10 @@ namespace ASP.NETWebAPI.Models
 
         public double Price { get; set; }
 
-        public virtual Supplier Supplier { get; set; }
+        public Supplier Supplier { get; set; }
 
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
 
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }
